@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#submit").click(function(){
+				var a = $("#f_name").val();
+				var b = $("#email").val();
+				var c = $("#pass").val();
+				var d = $("#re_pass").val();
+
+
+				var e = $("#male").is(":checked");
+				var f = $("#female").is(":checked");
+
+
+
+				var g = $("#city").val();
+
+
+				var h = $("#contact").val();
+
+				var check=true;
+
+
+				if(a=="")
+				{
+					check=false;
+					$("#f_name_msg").html("Insert Your Full Name");
+				}
+				else
+				{
+					$("#f_name_msg").html("");
+				}
+				if(b=="")
+				{
+					check=false;
+					$("#email_msg").html("Insert Your Email Id");
+				}
+				else
+				{
+					$("#email_msg").html("");
+					var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					if(reg.test(b)==false)
+					{
+						check=false;
+						$("#email_msg").html("Insert Correct Email Id");
+					}
+					else
+					{
+						
+						$("#email_msg").html("");
+					}
+
+				}
+				if(c=="")
+				{
+					check=false;
+					$("#pass_msg").html("Insert Your Password");
+				}
+				else
+				{
+					$("#pass_msg").html("");
+					var reg_pass = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
+					if(reg_pass.test(c)==false)
+					{
+						check=false;
+						$("#pass_msg").html("Insert Strong Password");
+					}
+					else
+					{
+						$("#pass_msg").html("");
+					}
+
+				}
+				if(d=="")
+				{
+					check=false;
+					$("#re_pass_msg").html("Insert Your Re-Password");
+				}
+				else
+				{
+					$("#re_pass_msg").html("");
+					if(c != d)
+					{
+						check=false;
+						$("#re_pass_msg").html("Insert Correct Re-Password");
+					}
+					else
+					{
+						$("#re_pass_msg").html("");
+					}
+
+				}
+				if(e == false && f == false)
+				{
+					check=false;
+					$("#gender_msg").html("Select Gender");
+				}
+				else
+				{
+					$("#gender_msg").html("");
+
+				}
+
+				if(g=="Select")
+				{
+					check=false;
+					$("#city_msg").html("Select City");
+				}
+				else
+				{
+					$("#city_msg").html("");
+
+				}
+				if(h=="")
+				{
+					check=false;
+					$("#contact_msg").html("Insert Your Contact Num");
+				}
+				else
+				{
+					$("#contact_msg").html("");
+					if(isNaN(h)==true)
+					{
+						$("#contact_msg").html("Insert Number Only");
+					}
+					else
+					{
+						$("#contact_msg").html("");
+						if(h.length != 10)
+						{
+							$("#contact_msg").html("Insert 10 Digit");
+						}
+						else
+						{
+							$("#contact_msg").html("");
+						}
+					}
+
+				}
+
+				return check;
+			});
+
+
+			$("#img").mouseover(function(){
+				// alert();
+				$(this).attr("src", "/product_image/5fed850bc909ea1838fb08ac.jpg");
+			});
+			$("#img").mouseout(function(){
+				// alert();
+				$(this).attr("src", "/product_image/eedb34654a9a4b0e8227298f.jpg");
+			});
+
+
+
+		});
+	</script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  
+	</nav>
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2>Registartion</h2>
+			</div>
+			<div class="panel-body">
+				<form action="/val" method="post">
+					
+				<div class="form-group">
+					<label>Full Name</label>
+					<input id="f_name" type="text" name="f_name" class="form-control">
+					<small id="f_name_msg" class="text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label>Email</label>
+					<input id="email" type="text" name="email" class="form-control">
+					<small id="email_msg" class="text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input id="pass" type="password" class="form-control">
+					<small id="pass_msg" class="text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label>Re-Password</label>
+					<input id="re_pass" type="password" class="form-control">
+					<small id="re_pass_msg" class="text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label>Gender</label>
+					<input id="male" type="radio" name="gender">M
+					<input id="female" type="radio" name="gender">F
+					<small id="gender_msg" class="text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label>City</label>
+					<select id="city" class="form-control">
+						<option>Select</option>
+						<option>Indore</option>
+						<option>Bhopal</option>
+						<option>Mumbai</option>
+						<option>Pune</option>
+					</select>
+					<small id="city_msg" class="text-danger"></small>
+				</div>
+
+				<div class="form-group">
+					<label>Contact</label>
+					<input id="contact" type="text" class="form-control">
+					<small id="contact_msg" class="text-danger"></small>
+				</div>
+				<input id="submit" type="submit" class="btn btn-primary" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<hr />
+
+<img src="/product_image/eedb34654a9a4b0e8227298f.jpg" id="img" height="200" width="200">
+</body>
+</html>

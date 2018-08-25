@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var x=true;
+			$("button").click(function(){
+				// $("#box").hide();
+				// $("#box").slideUp(2000);
+				// $("#box").fadeOut(2000);
+				// $("#box").show();
+				// $("#box").slideDown(2000);
+				// $("#box").fadeIn(2000);
+				// $("#box").css({"background-color":"red", "height":"300px", "width" : "300px"});
+				// $("#box").animate({"background-color":"red", "height":"300px", "width" : "300px"}, 2000);
+				// $("#box").animate({"margin-left":"600px"}, 1000);
+				// $("#box").animate({"margin-top":"200px"}, 1000);
+				// $("#box").animate({"margin-left":"0px"}, 1000);
+				// $("#box").animate({"margin-top":"0px"}, 1000);
+				// $("#box").animate({"width":"200px"}, 1000);
+				// var a = $("#pass").attr("placeholder");
+				if(x)
+				{
+					$("#pass").attr("type", "text");
+					$(this).html("Hide");
+					x=false;
+				}
+				else
+				{
+					$("#pass").attr("type", "password");
+					$(this).html("Show");
+					x=true;
+				}
+				
+			});
+		});
+	</script>
+	<style type="text/css">
+		#box{
+			height: 200px;
+			width: 0px;
+			background-color: #36ACED;
+			/*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  
+	</nav>
+<div class="container">
+	<!-- <button>Show</button>
+	<div id="box"></div> -->
+	<input type="password" id="pass" placeholder="Password" />
+	<button>Show</button>
+</div>
+
+<hr />
+
+</body>
+</html>

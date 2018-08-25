@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+  	<div class="navbar-header">
+      <a class="navbar-brand" href="#">Administrator Area</a>
+    </div>
+  	<% if(session.is_admin_logged_in){ %>
+
+    
+    <ul class="nav navbar-nav">
+      <li><a href="/admin/dashborad">Dashborad</a></li>
+      <li><a href="/admin/add_category">Add Category</a></li>
+      <li><a href="/admin/add_product">Add Product</a></li>
+      <li><a href="/admin/view_category">View Catgory</a></li>
+      <li><a href="/admin/view_product">View Product</a></li>
+      <li><a href="/cpanel/logout">Logout</a></li>
+    </ul>
+  </div>
+  	<% } %>
+</nav>
+<%- include(pagename); %>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".small_img").mouseover(function(){
+				var a = $(this).attr("src");
+				// alert(a);
+				$("#big_img").css({"background-image" : "url('"+a+"')"});
+			});
+			$("#big_img").mousemove(function(event){
+				var x = event.pageX;
+				var y = event.pageY;
+				$("#big_img").css({"background-position" : -x+"px "+(-y)+"px"});
+			});	
+		});
+	</script>
+	<style type="text/css">
+		.small_img{
+			height: 80px;
+			width: 80px;
+		}
+		#big_img{
+			height: 400px;
+			width: 400px;
+			background-color: red;
+			background-repeat: no-repeat;
+			background-image: url('/img/1.jpg');
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  
+	</nav>
+<div class="container">
+	<!-- <img id="big_img" src="/img/1.jpg" height="300" width="250" /> -->
+	<div id="big_img"></div>
+	<hr />
+	<img src="/img/1.jpg" class="small_img">
+	<img src="/img/2.jpg" class="small_img">
+	<img src="/img/3.jpg" class="small_img">
+</div>
+
+<hr />
+<div id="box"></div>
+
+</body>
+</html>

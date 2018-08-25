@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+  <h3>View All Category</h3>
+  <table class="table table-bordered table-striped">
+  	<tr>
+  		<th>S.No.</th> 
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Product Discount</th>
+      <th>Product Category</th>
+  		<th>Product Image</th>
+  		<th>Edit</th>
+  		<th>Delete</th>
+  	</tr>
+  	<% data.forEach(function(x, i){ %>
+  		<tr>
+  			<td><%= i+1 %></td>
+        <td><%= x.name %></td>
+        <td><%= x.price %></td>
+        <td><%= x.discount %></td>
+        <% catdata.forEach(function(y){
+          if(y._id == x.category){ %>
+            <td><%= y.name %></td>
+        <% }
+      }) %>
+        
+  			<td><img src = "/product_image/<%= x.image %>" height="70" width="70"></td>
+  			<td><a href="view_product/update/<%= x._id %>" class="btn btn-sm btn-info">Edit</a></td>
+  			
+
+        <td><a href="view_product/delete/<%= x._id %>" data-toggle="modal" class="btn btn-sm btn-danger">Delete</a></td>
+
+  		</tr>
+ <% }) %>
+  </table>
+</div>
+</div>
+
+<div class="modal fade" id="delModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>Delete</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure want to delete this category !</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-default">Cancle</a>
+				<a href="#" class="btn btn-danger">OK</a>
+			</div>
+		</div>
+	</div>
+</div>

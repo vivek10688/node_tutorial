@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="col-md-4 col-md-offset-4">
+  <h3>Add New Product</h3>
+  <hr />
+  <form action="/admin/add_product/update" method="post" enctype="multipart/form-data">
+  	<div class="form-group">
+  		<label>Product Name</label>
+  		<input type="text" placeholder="Product Name" name="name" value="<%= prodata.name %>" class="form-control">
+
+  	</div>
+    <div class="form-group">
+      <label>Current Image</label>
+      <img src="/product_image/<%= prodata.image %>" height="100" width="100">
+
+    </div>
+    <div class="form-group">
+      <label>Product Image</label>
+      <input type="file" name="image" class="form-control">
+
+    </div>
+    <div class="form-group">
+      <label>Product Price</label>
+      <input value="<%= prodata.price %>" type="text" placeholder="Product Price" name="price" class="form-control">
+
+    </div>
+    
+    <div class="form-group">
+      <label>Product Category</label>
+      <select class="form-control" name="category">
+        <option>Select</option>
+        <% catedata.forEach(function(x){ %>
+          <% if(prodata.category == x._id)
+          { %>
+            <option selected="selected" value="<%= x._id %>"><%= x.name %></option>
+          <% }
+          else
+          { %>
+            <option value="<%= x._id %>"><%= x.name %></option>
+         <% } %>
+
+          
+      <% }) %>
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label>Product Detail</label>
+      <textarea class="form-control" name="detail"><%= prodata.detail %></textarea>
+
+    </div>
+    <div class="form-group">
+      <label>Product Discount</label>
+      <input type="text" value="<%= prodata.discount %>" placeholder="Discount" name="discount" class="form-control">
+
+    </div>
+    <input type="hidden" name="id" value="<%= prodata._id %>" />
+    <input type="hidden" name="image" value="<%= prodata.image %>" />
+  	<input type="submit" value="Add" class="btn btn-primary">
+  </form>
+</div>
+
+
+</div>
